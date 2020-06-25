@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Create Object</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>f6667845-3bf9-41c5-9469-eddda1f1c097</testCaseGuid>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>555be737-4ff4-4492-aee6-0106a2d86866</id>
+      <masked>false</masked>
+      <name>object</name>
+   </variable>
+</TestCaseEntity>
