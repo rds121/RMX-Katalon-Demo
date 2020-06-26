@@ -24,12 +24,6 @@ import internal.GlobalVariable as GlobalVariable
  * @info  3. Delete the Tenant then close the browser
  */
 
-//Prompt the user for information: DBID, Username, Password, and Tenant to create
-//This information will be stored in the data file attached to this project
-WebUI.callTestCase(findTestCase('Prompt'), [:])
-
-//Call the Login test case which will go to the provided DBID and login with the given credentials
-WebUI.callTestCase(findTestCase('Login'), [:])
 
 //Wait for the Tenant favorite icon to load, then click on it
 WebUI.waitForElementPresent(findTestObject('Object Repository/Tenant Creation Test/Tenant Link'), 30)
