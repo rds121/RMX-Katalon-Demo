@@ -1,3 +1,0 @@
-Create a new branch for this project that is a sub-branch of BranchTesting - name it your username (e.g. rsepesy)
-Create a file named Demo Testing File with your name and the date in the contents in this folder.
-Commit and push this new file to your branch
