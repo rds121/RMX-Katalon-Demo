@@ -27,18 +27,22 @@ WebUI.openBrowser('')
 //Navigate to the DBID stored in the testing doc
 WebUI.navigateToUrl(findTestData('Demo - Testing Doc').getValue(1, 1))
 	
-//Wait for the username and password inputs to appear, then enter in the data stored in the testing doc
-WebUI.waitForElementPresent(findTestObject('Login/input_EXPRESS_Username'), 30)
+//Verify whether the browser needs to login, and if it does input the correct information
+if (WebUI.verifyElementPresent(findTestObject('Login/input_EXPRESS_Username'), 2, FailureHandling.OPTIONAL)){
 	
-WebUI.setText(findTestObject('Login/input_EXPRESS_Username'), findTestData('Demo - Testing Doc').getValue(
-			2, 1))
+	//Wait for the username and password inputs to appear, then enter in the data stored in the testing doc
+	WebUI.waitForElementPresent(findTestObject('Login/input_EXPRESS_Username'), 30)
+		
+	WebUI.setText(findTestObject('Login/input_EXPRESS_Username'), findTestData('Demo - Testing Doc').getValue(
+				2, 1))
+		
+	WebUI.setText(findTestObject('Login/input_EXPRESS_Password'), findTestData('Demo - Testing Doc').getValue(
+				3, 1))
+		
 	
-WebUI.setText(findTestObject('Login/input_EXPRESS_Password'), findTestData('Demo - Testing Doc').getValue(
-			3, 1))
-	
-
-//Click sign in
-WebUI.click(findTestObject('Login/span_Sign In'))
+	//Click sign in
+	WebUI.click(findTestObject('Login/span_Sign In'))
+}
 
 //Wait for the welcome message, verifying that login was successful
 WebUI.waitForElementVisible(findTestObject('Login/h1_Welcome Message'), 60)

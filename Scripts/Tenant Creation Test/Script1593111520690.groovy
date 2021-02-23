@@ -15,6 +15,21 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 
-WebUI.callTestCase(findTestCase('Generics/Tasks/Open - Resume'), [:], FailureHandling.STOP_ON_FAILURE)
+/**
+ * @title Tenant Creation Test
+ * @author rsepesy
+ * @info  A demo test that runs through some basic automation processes
+ * @info  1. Prompt the user for information that will be used in the test
+ * @info  2. Open the RMX specified by the user and create a Tenant with their given name
+ * @info  3. Delete the Tenant then close the browser
+ */
 
-WebUI.callTestCase(findTestCase('Generics/Workflow/Create Object'), [('object') : 'Tenants'], FailureHandling.STOP_ON_FAILURE)
+//Prompt the user for information: DBID, Username, Password, and Tenant to create
+//This information will be stored in the data file attached to this project
+WebUI.callTestCase(findTestCase('Prompt'), [:])
+
+//Call the Login test case which will go to the provided DBID and login with the given credentials
+WebUI.callTestCase(findTestCase('Login'), [:])
+
+//Call test case to perform Create Tenant test
+WebUI.callTestCase(findTestCase('Create Tenant'), [:], FailureHandling.STOP_ON_FAILURE)

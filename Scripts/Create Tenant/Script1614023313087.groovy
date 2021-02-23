@@ -16,20 +16,11 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 
 /**
- * @title Create Object
+ * @title Create Tenant
  * @author rsepesy
- * @info  A demo test that runs through some basic automation processes
- * @info  1. Prompt the user for information that will be used in the test
- * @info  2. Open the RMX specified by the user and create a Tenant with their given name
- * @info  3. Delete the Tenant then close the browser
+ * @info  Runs the code to create then delete a Tenant
+ * @info  Closes the browser when finished
  */
-
-//Prompt the user for information: DBID, Username, Password, and Tenant to create
-//This information will be stored in the data file attached to this project
-WebUI.callTestCase(findTestCase('Prompt'), [:])
-
-//Call the Login test case which will go to the provided DBID and login with the given credentials
-WebUI.callTestCase(findTestCase('Login'), [:])
 
 //Wait for the Tenant favorite icon to load, then click on it
 WebUI.waitForElementPresent(findTestObject('Object Repository/Tenant Creation Test/Tenant Link'), 30)
@@ -62,7 +53,7 @@ CustomKeywords.'katalon.Actions.listSelect'()
 //Save, then wait for the Back back to load to ensure the Tenant was created properly
 WebUI.click(findTestObject('Object Repository/Tenant Creation Test/button_Save'))
 
-WebUI.waitForElementVisible(findTestObject('Object Repository/Tenant Creation Test/span_Back'), 30)
+WebUI.waitForElementVisible(findTestObject('Object Repository/Tenant Creation Test/i_delete'), 30)
 
 WebUI.delay(2)
 
